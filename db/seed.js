@@ -1,16 +1,25 @@
 const mongoose = require('./model/tripModel')
-const seeds = require('./tripsSeed.json')
-const Trip = mongoose.model('tripModel')
+const Trip = mongoose.model('Trip')
 
-// mongoose.Promise = Promise
+Trip.create(
+    {
+        place: 'Hollywood Blvd',
+        review: {
+          dateAttended: 'July 10th, 2018',
+          favExperience: 'Seeing celebs',
+          leastFav: 'Hot weather',
+    
+        }
+      },
 
-Trip.remove({}).then(_ => {
-    console.log('Dropped the DB')
-    Trip.collection.insert(seeds).then(Trips => {
-        console.log(seeds)
-        mongoose.connection.close()
-    })
-    .catch(err => {
-        console.log(err)
-    })
-})
+      {
+        place: 'Las Vegas',
+        review: {
+          dateAttended: 'May 22, 2017',
+          favExperience: 'Lotta crazy peeps',
+          leastFav: 'Leaving to go home',
+          
+        }
+      }
+)
+

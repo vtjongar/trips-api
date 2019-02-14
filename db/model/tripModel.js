@@ -4,11 +4,21 @@ const Schema = mongoose.Schema
 
 
 const Trip = new Schema(
-    
-    {
-    area: String
-})
 
-mongoose.model('tripModel', Trip)
+    {
+        place: String,
+        review: {
+          dateAttended: String,
+          favExperience: String,
+          leastFav: String
+    
+        }
+      }
+
+
+
+)
+
+mongoose.model('Trip', Trip)
 
 module.exports = mongoose
